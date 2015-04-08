@@ -1,4 +1,4 @@
-$(function() {
+$(document).on('page:change', function() {
   function error(msg) {
     $('#msg').text(msg);
   }
