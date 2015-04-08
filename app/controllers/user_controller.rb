@@ -1,7 +1,4 @@
 class UserController < ApplicationController
-  def main
-  end
-
   def signup
     user = User.new
     user.username = params[:id]
