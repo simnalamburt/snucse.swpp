@@ -21,14 +21,14 @@ class UserController < ApplicationController
           e1 ? -1 :
           e2 ? -2 :
           e3 ? -3 : 0
-      }
+      }, status: 412
     end
   end
 
   def login
     user = User.where(username: params[:id], password: params[:passwd]).first()
     unless user
-      return render json: { error_code: -4 }
+      return render json: { error_code: -4 }, status: 412
     end
 
     user.count += 1
