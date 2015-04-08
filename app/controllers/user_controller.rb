@@ -22,4 +22,10 @@ class UserController < ApplicationController
       login_count: user.count
     }
   end
+
+  def delete_all
+    User.delete_all
+
+    head :ok
+  end
 end
