@@ -11,13 +11,18 @@ class UserController < ApplicationController
 
     render json: {
       user_name: user.username,
-      login_count: 1
+      login_count: user.count
     }
   end
 
   def login
+    user = User.where(username: params[:id]).first()
+    user.count += 1
+    user.save
+
     render json: {
-      user_name: params[:id]
+      user_name: user.username,
+      login_count: user.count
     }
   end
 end
