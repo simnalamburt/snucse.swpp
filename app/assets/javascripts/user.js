@@ -3,6 +3,10 @@ $(document).on('page:change', function() {
     $('#msg').text(msg);
   }
 
+  function done(res) {
+    location.href = '/welcome/' + res.user_name + '/' + res.login_count;
+  }
+
   $('#login').click(function() {
     var obj = {
       id: $('#id').val(),
@@ -10,9 +14,7 @@ $(document).on('page:change', function() {
     };
 
     $.post('/login', obj)
-    .done(function(res) {
-      location.href = '/welcome';
-    })
+    .done(done)
     .fail(function() {
       error('Invalid username and password combination. Please try again.');
     });
@@ -25,9 +27,7 @@ $(document).on('page:change', function() {
     };
 
     $.post('/signup', obj)
-    .done(function(res) {
-      location.href = '/welcome';
-    })
+    .done(done)
     .fail(function(e) {
       switch(e.responseJSON.error_code) {
         case -1:
