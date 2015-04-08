@@ -1,4 +1,8 @@
 $(function() {
+  function error(msg) {
+    $('#msg').text(msg);
+  }
+
   $('#login').click(function() {
     var obj = {
       id: $('#id').val(),
@@ -10,7 +14,7 @@ $(function() {
       location.href = '/welcome';
     })
     .fail(function() {
-      alert('Invalid username and password combination. Please try again.');
+      error('Invalid username and password combination. Please try again.');
     });
   });
 
@@ -36,7 +40,7 @@ $(function() {
           msg = 'This user name already exists. Please try again.'
           break;
       }
-      alert(msg);
+      error(msg);
     });
   });
 });
