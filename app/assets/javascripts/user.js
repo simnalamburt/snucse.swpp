@@ -5,7 +5,10 @@ $(function() {
       passwd: $('#passwd').val()
     };
 
-    console.log(obj);
+    $.post('/login', obj)
+    .done(function(res) {
+      console.log(res);
+    });
   });
 
   $('#join').click(function() {

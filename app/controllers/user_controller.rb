@@ -14,4 +14,10 @@ class UserController < ApplicationController
       login_count: 1
     }
   end
+
+  def login
+    render json: {
+      user_name: params[:id]
+    }
+  end
 end
