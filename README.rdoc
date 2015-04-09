@@ -1,3 +1,0 @@
-== Warm-up Programming Assignment 1
-
-CSE SWPP, SNU, Spring 2015
